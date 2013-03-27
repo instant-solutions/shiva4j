@@ -1,7 +1,13 @@
 *.class
 
+# eclipse Files #
+*.classpath
+*.project
+
 # Package Files #
 *.war
 *.ear
 
 *.DS_Store
+
+bin/*
