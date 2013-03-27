@@ -22,8 +22,14 @@ import at.tripwire.shiva4j.objects.Artist;
 import at.tripwire.shiva4j.objects.Lyric;
 import at.tripwire.shiva4j.objects.Show;
 import at.tripwire.shiva4j.objects.Show.OtherArtist;
-import at.tripwire.shiva4j.objects.Show.Venue;
 import at.tripwire.shiva4j.objects.Track;
+import at.tripwire.shiva4j.objects.impl.AlbumImpl;
+import at.tripwire.shiva4j.objects.impl.ArtistImpl;
+import at.tripwire.shiva4j.objects.impl.LyricImpl;
+import at.tripwire.shiva4j.objects.impl.ShowImpl;
+import at.tripwire.shiva4j.objects.impl.ShowImpl.OtherArtistImpl;
+import at.tripwire.shiva4j.objects.impl.ShowImpl.VenueImpl;
+import at.tripwire.shiva4j.objects.impl.TrackImpl;
 
 public class Shiva4J {
 
@@ -688,7 +694,7 @@ public class Shiva4J {
 	}
 
 	private Artist parseArtist(JSONObject obj) throws JSONException {
-		Artist a = new Artist();
+		ArtistImpl a = new ArtistImpl();
 		a.setId(obj.getInt(COMMON_ID));
 		a.setName(obj.getString(ARTIST_NAME));
 		a.setImageUrl(obj.getString(ARTIST_IMAGE));
@@ -699,7 +705,7 @@ public class Shiva4J {
 	}
 
 	private Album parseAlbum(JSONObject obj) throws JSONException {
-		Album a = new Album();
+		AlbumImpl a = new AlbumImpl();
 		a.setId(obj.getInt(COMMON_ID));
 		a.setSlug(obj.getString(COMMON_SLUG));
 		a.setCoverUrl(obj.getString(ALBUM_COVER));
@@ -709,11 +715,11 @@ public class Shiva4J {
 		a.setDownloadUri(obj.getString(ALBUM_DOWNLOAD_URI));
 
 		JSONArray jsonArtists = obj.getJSONArray(ALBUM_ARTISTS);
-		Artist[] artists = new Artist[jsonArtists.length()];
+		ArtistImpl[] artists = new ArtistImpl[jsonArtists.length()];
 
 		for (int j = 0; j < jsonArtists.length(); j++) {
 			JSONObject artistObj = jsonArtists.getJSONObject(j);
-			artists[j] = new Artist();
+			artists[j] = new ArtistImpl();
 			artists[j].setId(artistObj.getInt(COMMON_ID));
 			artists[j].setUri(artistObj.getString(COMMON_URI));
 		}
@@ -722,7 +728,7 @@ public class Shiva4J {
 	}
 
 	private Track parseTrack(JSONObject obj) throws JSONException {
-		Track track = new Track();
+		TrackImpl track = new TrackImpl();
 		track.setId(obj.getInt(COMMON_ID));
 		track.setLength(obj.getInt(TRACK_LENGTH));
 		track.setStreamUri(obj.getString(TRACK_STREAM_URI));
@@ -732,12 +738,12 @@ public class Shiva4J {
 		track.setSlug(obj.getString(COMMON_SLUG));
 		track.setTitle(obj.getString(TRACK_TITLE));
 		JSONObject albumObj = obj.getJSONObject(TRACK_ALBUM);
-		Album album = new Album();
+		AlbumImpl album = new AlbumImpl();
 		album.setId(albumObj.getInt(COMMON_ID));
 		album.setUri(albumObj.getString(COMMON_URI));
 		track.setAlbum(album);
 		JSONObject artistObj = obj.getJSONObject(TRACK_ARTIST);
-		Artist artist = new Artist();
+		ArtistImpl artist = new ArtistImpl();
 		artist.setId(artistObj.getInt(COMMON_ID));
 		artist.setUri(artistObj.getString(COMMON_URI));
 		track.setArtist(artist);
@@ -745,14 +751,14 @@ public class Shiva4J {
 	}
 
 	private Lyric parseLyric(JSONObject obj) throws JSONException {
-		Lyric lyric = new Lyric();
+		LyricImpl lyric = new LyricImpl();
 		lyric.setId(obj.getInt(COMMON_ID));
 		lyric.setUri(obj.getString(COMMON_URI));
 		lyric.setSourceUri(obj.getString(LYRIC_SOURCE_URI));
 		lyric.setText(obj.getString(LYRIC_TEXT));
 
 		JSONObject trackObj = obj.getJSONObject(LYRIC_TRACK);
-		Track track = new Track();
+		TrackImpl track = new TrackImpl();
 		track.setId(trackObj.getInt(COMMON_ID));
 		track.setUri(trackObj.getString(COMMON_URI));
 		lyric.setTrack(track);
@@ -760,7 +766,7 @@ public class Shiva4J {
 	}
 
 	private Show parseShow(JSONObject obj) throws JSONException {
-		Show show = new Show();
+		ShowImpl show = new ShowImpl();
 		show.setId(obj.getInt(COMMON_ID));
 		long time;
 		try {
@@ -772,17 +778,17 @@ public class Shiva4J {
 		show.setTitle(obj.getString(SHOW_TITLE));
 
 		JSONObject venueObj = obj.getJSONObject(SHOW_VENUE);
-		Venue venue = new Venue();
+		VenueImpl venue = new VenueImpl();
 		venue.setName(venueObj.getString(VENUE_NAME));
 		venue.setLatitude(venueObj.getString(VENUE_LATITUDE));
 		venue.setLongitude(venueObj.getString(VENUE_LONGITUDE));
 		show.setVenue(venue);
 
 		JSONArray jsonArtists = obj.getJSONArray(SHOW_ARTISTS);
-		Artist[] artists = new Artist[jsonArtists.length()];
+		ArtistImpl[] artists = new ArtistImpl[jsonArtists.length()];
 		for (int j = 0; j < jsonArtists.length(); j++) {
 			JSONObject artistObj = jsonArtists.getJSONObject(j);
-			artists[j] = new Artist();
+			artists[j] = new ArtistImpl();
 			artists[j].setId(artistObj.getInt(COMMON_ID));
 			artists[j].setUri(artistObj.getString(COMMON_URI));
 		}
@@ -792,7 +798,7 @@ public class Shiva4J {
 		OtherArtist[] otherArtists = new OtherArtist[jsonOtherArtists.length()];
 		for (int j = 0; j < jsonOtherArtists.length(); j++) {
 			JSONObject jsonOtherArtist = jsonOtherArtists.getJSONObject(j);
-			OtherArtist otherArtist = new OtherArtist();
+			OtherArtistImpl otherArtist = new OtherArtistImpl();
 			otherArtist.setFacebookTourDatesUrl(jsonOtherArtist.getString(OTHER_ARTISTS_FACEBOOK));
 			otherArtist.setImageUrl(jsonOtherArtist.getString(OTHER_ARTISTS_IMAGE_URL));
 			otherArtist.setMusicBrainzId(jsonOtherArtist.getString(OTHER_ARTISTS_MBID));

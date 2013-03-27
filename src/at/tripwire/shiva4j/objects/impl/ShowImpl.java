@@ -2,7 +2,10 @@ package at.tripwire.shiva4j.objects.impl;
 
 import java.sql.Timestamp;
 
-public class ShowImpl {
+import at.tripwire.shiva4j.objects.Artist;
+import at.tripwire.shiva4j.objects.Show;
+
+public class ShowImpl implements Show {
 
 	private int id;
 	private String title;
@@ -12,7 +15,7 @@ public class ShowImpl {
 	private ArtistImpl[] artists;
 	private OtherArtist[] otherArtists;
 
-	public static class Venue {
+	public static class VenueImpl implements Venue {
 		private String name;
 		private String latitude;
 		private String longitude;
@@ -51,7 +54,7 @@ public class ShowImpl {
 		}
 	}
 
-	public static class OtherArtist {
+	public static class OtherArtistImpl implements OtherArtist {
 		private String name;
 		private String musicBrainzId;
 		private String facebookTourDatesUrl;
@@ -141,7 +144,7 @@ public class ShowImpl {
 	/**
 	 * A list of artist resources.
 	 */
-	public ArtistImpl[] getArtists() {
+	public Artist[] getArtists() {
 		return artists;
 	}
 

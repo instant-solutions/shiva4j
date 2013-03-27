@@ -1,6 +1,10 @@
 package at.tripwire.shiva4j.objects.impl;
 
-public class TrackImpl {
+import at.tripwire.shiva4j.objects.Album;
+import at.tripwire.shiva4j.objects.Artist;
+import at.tripwire.shiva4j.objects.Track;
+
+public class TrackImpl implements Track {
 
 	private int id;
 	private int number;
@@ -72,14 +76,14 @@ public class TrackImpl {
 	/**
 	 * The album to which this track belongs to.
 	 */
-	public AlbumImpl getAlbum() {
+	public Album getAlbum() {
 		return album;
 	}
 
 	/**
 	 * The artist which performs this track.
 	 */
-	public ArtistImpl getArtist() {
+	public Artist getArtist() {
 		return artist;
 	}
 

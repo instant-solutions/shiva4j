@@ -1,12 +1,15 @@
 package at.tripwire.shiva4j.objects.impl;
 
-public class LyricImpl {
+import at.tripwire.shiva4j.objects.Lyric;
+import at.tripwire.shiva4j.objects.Track;
+
+public class LyricImpl implements Lyric {
 
 	private int id;
 	private String text;
 	private String uri;
 	private String sourceUri;
-	private TrackImpl track;
+	private Track track;
 
 	/**
 	 * THe object's ID.
@@ -39,7 +42,7 @@ public class LyricImpl {
 	/**
 	 * The track for which the lyrics are.
 	 */
-	public TrackImpl getTrack() {
+	public Track getTrack() {
 		return track;
 	}
 
@@ -59,7 +62,7 @@ public class LyricImpl {
 		this.sourceUri = sourceUri;
 	}
 
-	public void setTrack(TrackImpl track) {
+	public void setTrack(Track track) {
 		this.track = track;
 	}
 }

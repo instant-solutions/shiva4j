@@ -1,65 +1,29 @@
 package at.tripwire.shiva4j.objects;
 
-public class Lyric {
-
-	private int id;
-	private String text;
-	private String uri;
-	private String sourceUri;
-	private Track track;
+public interface Lyric {
 
 	/**
 	 * THe object's ID.
 	 */
-	public int getId() {
-		return id;
-	}
+	int getId();
 
 	/**
 	 * The lyric's text.
 	 */
-	public String getText() {
-		return text;
-	}
+	String getText();
 
 	/**
 	 * The URI of this resource's instance.
 	 */
-	public String getUri() {
-		return uri;
-	}
+	String getUri();
 
 	/**
 	 * The URI whre the lyrics were fetched from.
 	 */
-	public String getSourceUri() {
-		return sourceUri;
-	}
+	String getSourceUri();
 
 	/**
 	 * The track for which the lyrics are.
 	 */
-	public Track getTrack() {
-		return track;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	public void setUri(String uri) {
-		this.uri = uri;
-	}
-
-	public void setSourceUri(String sourceUri) {
-		this.sourceUri = sourceUri;
-	}
-
-	public void setTrack(Track track) {
-		this.track = track;
-	}
+	Track getTrack();
 }

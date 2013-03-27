@@ -1,6 +1,8 @@
 package at.tripwire.shiva4j.objects.impl;
 
-public class ArtistImpl {
+import at.tripwire.shiva4j.objects.Artist;
+
+public class ArtistImpl implements Artist {
 
 	private int id;
 	private String name;

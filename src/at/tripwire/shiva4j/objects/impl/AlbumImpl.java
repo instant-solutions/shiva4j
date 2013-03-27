@@ -1,6 +1,9 @@
 package at.tripwire.shiva4j.objects.impl;
 
-public class AlbumImpl {
+import at.tripwire.shiva4j.objects.Album;
+import at.tripwire.shiva4j.objects.Artist;
+
+public class AlbumImpl implements Album {
 
 	private int id;
 	private String name;
@@ -9,7 +12,7 @@ public class AlbumImpl {
 	private String downloadUri;
 	private String coverUrl;
 	private String slug;
-	private ArtistImpl[] artists;
+	private Artist[] artists;
 
 	/**
 	 * The object's ID.
@@ -63,7 +66,7 @@ public class AlbumImpl {
 	/**
 	 * A list of the artists involved in that record.
 	 */
-	public ArtistImpl[] getArtists() {
+	public Artist[] getArtists() {
 		return artists;
 	}
 
@@ -95,7 +98,7 @@ public class AlbumImpl {
 		this.slug = slug;
 	}
 
-	public void setArtists(ArtistImpl[] artists) {
+	public void setArtists(Artist[] artists) {
 		this.artists = artists;
 	}
 }
