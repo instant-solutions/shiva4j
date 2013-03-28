@@ -11,3 +11,7 @@
 *.DS_Store
 
 bin/*
+
+# Gradle Build #
+build/*
+*.gradle
