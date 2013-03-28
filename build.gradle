@@ -1,0 +1,24 @@
+apply plugin: 'java'
+
+group = "at.tripwire.shiva"
+version = "0.2"
+
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'commons-io:commons-io:2.4', 'org.apache.httpcomponents:httpclient:4.2.3', 'org.json:json:20090211'
+}
+
+sourceSets {
+  main {
+    java {
+      srcDir 'src'
+    }
+    resources {
+      srcDir 'src'
+    }
+  }
+}
