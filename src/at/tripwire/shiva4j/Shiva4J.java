@@ -238,7 +238,7 @@ public class Shiva4J {
 	 * @return A collection of all artist's shows. <code>null</code> if JSON
 	 *         content is not well formatted.
 	 * @throws IOException
-	 * @see {@link #getArtistShows(int)}
+	 * @see #getArtistShows(int)
 	 */
 	public Collection<Show> getArtistShows(Artist artist) throws IOException {
 		return getArtistShows(artist.getId());
@@ -252,7 +252,7 @@ public class Shiva4J {
 	 * @return A collection of all artist's shows. <code>null</code> if JSON
 	 *         content is not well formatted.
 	 * @throws IOException
-	 * @see {@link #getArtistShows(Artist)}
+	 * @see #getArtistShows(Artist)
 	 */
 	public Collection<Show> getArtistShows(int artistId) throws IOException {
 		try {
