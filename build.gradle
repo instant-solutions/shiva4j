@@ -12,6 +12,11 @@ dependencies {
   compile 'commons-io:commons-io:2.4', 'org.apache.httpcomponents:httpclient:4.2.3', 'org.json:json:20090211'
 }
 
+javadoc {
+	title = 'Shiva4J REST API'
+	options.bottom = '<a target="_blank" href="http://instant-it.at">instant:solutions</a> - <a target="_blank" href="https://github.com/instant-solutions/shiva4j">Shiva4J on Github</a>'
+}
+
 sourceSets {
   main {
     java {
