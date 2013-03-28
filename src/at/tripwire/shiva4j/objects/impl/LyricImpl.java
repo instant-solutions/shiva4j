@@ -12,7 +12,7 @@ public class LyricImpl implements Lyric {
 	private Track track;
 
 	/**
-	 * THe object's ID.
+	 * The object's ID.
 	 */
 	public int getId() {
 		return id;

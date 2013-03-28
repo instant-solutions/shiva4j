@@ -3,7 +3,7 @@ package at.tripwire.shiva4j.objects;
 public interface Lyric {
 
 	/**
-	 * THe object's ID.
+	 * The object's ID.
 	 */
 	int getId();
 
