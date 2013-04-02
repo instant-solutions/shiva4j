@@ -19,3 +19,12 @@ Documentation
 -------------
 
 Javadoc can be found here: http://shiva.tripwire.at/javadoc/
+
+
+TODO list
+---------
+
+* Examples
+
+  + How to use this lib?
+  + How to build with gradle?
