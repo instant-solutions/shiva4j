@@ -112,9 +112,11 @@ public class Shiva4J {
 		return requestUrl(uri, -1, -1);
 	}
 
-	private String requestUrl(String uri, int pageSize, int pageIndex) throws IOException {
+	private String requestUrl(String uri, int pageSize, int pageIndex)
+			throws IOException {
 		if (pageSize > 0) {
-			uri = uri + "?" + PARAM_PAGE_SIZE + "=" + pageSize + "&" + PARAM_PAGE_INDEX + "=" + pageIndex;
+			uri = uri + "?" + PARAM_PAGE_SIZE + "=" + pageSize + "&"
+					+ PARAM_PAGE_INDEX + "=" + pageIndex;
 		}
 
 		HttpGet get = new HttpGet(baseUri + uri);
@@ -152,7 +154,8 @@ public class Shiva4J {
 	 * @see #getArtists()
 	 * @see #getArtists(Album)
 	 */
-	public Collection<Artist> getArtists(int pageSize, int pageIndex) throws IOException {
+	public Collection<Artist> getArtists(int pageSize, int pageIndex)
+			throws IOException {
 		try {
 			String data = requestUrl(URL_ARTISTS, pageSize, pageIndex);
 			JSONArray array = new JSONArray(data);
@@ -295,7 +298,8 @@ public class Shiva4J {
 	 *             if network errors occurs.
 	 * @see #getAlbums()
 	 */
-	public Collection<Album> getAlbums(int pageSize, int pageIndex) throws IOException {
+	public Collection<Album> getAlbums(int pageSize, int pageIndex)
+			throws IOException {
 		return getAlbums(-1, pageSize, pageIndex);
 	}
 
@@ -347,7 +351,8 @@ public class Shiva4J {
 	 *             if network errors occurs.
 	 * @see #getAlbums(Artist)
 	 */
-	public Collection<Album> getAlbums(Artist artist, int pageSize, int pageIndex) throws IOException {
+	public Collection<Album> getAlbums(Artist artist, int pageSize,
+			int pageIndex) throws IOException {
 		return getAlbums(artist.getId(), pageSize, pageIndex);
 	}
 
@@ -367,7 +372,8 @@ public class Shiva4J {
 	 *             if network errors occurs.
 	 * @see #getAlbums(int)
 	 */
-	public Collection<Album> getAlbums(int artistId, int pageSize, int pageIndex) throws IOException {
+	public Collection<Album> getAlbums(int artistId, int pageSize, int pageIndex)
+			throws IOException {
 		try {
 			String url = URL_ALBUMS;
 			if (artistId != -1) {
@@ -437,7 +443,8 @@ public class Shiva4J {
 	 *             if network errors occurs.
 	 * @see #getTracks()
 	 */
-	public Collection<Track> getTracks(int pageSize, int pageIndex) throws IOException {
+	public Collection<Track> getTracks(int pageSize, int pageIndex)
+			throws IOException {
 		try {
 			String data = requestUrl(URL_TRACKS, pageSize, pageIndex);
 			JSONArray array = new JSONArray(data);
@@ -471,7 +478,8 @@ public class Shiva4J {
 	 *             if network errors occurs.
 	 * @see #getArtistsTracks(int, int, int)
 	 */
-	public Collection<Track> getArtistsTracks(Artist artist, int pageSize, int pageIndex) throws IOException {
+	public Collection<Track> getArtistsTracks(Artist artist, int pageSize,
+			int pageIndex) throws IOException {
 		return getArtistsTracks(artist.getId(), pageSize, pageIndex);
 	}
 
@@ -491,7 +499,8 @@ public class Shiva4J {
 	 *             if network errors occurs.
 	 * @see #getArtistsTracks(Artist, int, int)
 	 */
-	public Collection<Track> getArtistsTracks(int artistId, int pageSize, int pageIndex) throws IOException {
+	public Collection<Track> getArtistsTracks(int artistId, int pageSize,
+			int pageIndex) throws IOException {
 		try {
 			String url = URL_TRACKS;
 
@@ -563,7 +572,8 @@ public class Shiva4J {
 	 *             if network errors occurs.
 	 * @see #getAlbumTracks(int, int, int)
 	 */
-	public Collection<Track> getAlbumTracks(Album album, int pageSize, int pageIndex) throws IOException {
+	public Collection<Track> getAlbumTracks(Album album, int pageSize,
+			int pageIndex) throws IOException {
 		return getAlbumTracks(album.getId(), pageSize, pageIndex);
 	}
 
@@ -583,7 +593,8 @@ public class Shiva4J {
 	 *             if network errors occurs.
 	 * @see #getAlbumTracks(Album, int, int)
 	 */
-	public Collection<Track> getAlbumTracks(int albumId, int pageSize, int pageIndex) throws IOException {
+	public Collection<Track> getAlbumTracks(int albumId, int pageSize,
+			int pageIndex) throws IOException {
 		try {
 			String url = URL_TRACKS;
 
@@ -770,7 +781,8 @@ public class Shiva4J {
 		show.setId(obj.getInt(COMMON_ID));
 		long time;
 		try {
-			time = showDatetimeParser.parse(obj.getString(SHOW_DATETIME)).getTime();
+			time = showDatetimeParser.parse(obj.getString(SHOW_DATETIME))
+					.getTime();
 			show.setDatetime(new Timestamp(time));
 		} catch (ParseException e) {
 		}
@@ -799,9 +811,12 @@ public class Shiva4J {
 		for (int j = 0; j < jsonOtherArtists.length(); j++) {
 			JSONObject jsonOtherArtist = jsonOtherArtists.getJSONObject(j);
 			OtherArtistImpl otherArtist = new OtherArtistImpl();
-			otherArtist.setFacebookTourDatesUrl(jsonOtherArtist.getString(OTHER_ARTISTS_FACEBOOK));
-			otherArtist.setImageUrl(jsonOtherArtist.getString(OTHER_ARTISTS_IMAGE_URL));
-			otherArtist.setMusicBrainzId(jsonOtherArtist.getString(OTHER_ARTISTS_MBID));
+			otherArtist.setFacebookTourDatesUrl(jsonOtherArtist
+					.getString(OTHER_ARTISTS_FACEBOOK));
+			otherArtist.setImageUrl(jsonOtherArtist
+					.getString(OTHER_ARTISTS_IMAGE_URL));
+			otherArtist.setMusicBrainzId(jsonOtherArtist
+					.getString(OTHER_ARTISTS_MBID));
 			otherArtist.setName(jsonOtherArtist.getString(OTHER_ARTISTS_NAME));
 			otherArtists[j] = otherArtist;
 		}
