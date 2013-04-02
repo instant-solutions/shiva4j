@@ -2,6 +2,10 @@ package at.tripwire.shiva4j.objects;
 
 public interface Track {
 
+	public enum MimeType {
+		AUDIO_MP3, AUDIO_OGG
+	}
+
 	/**
 	 * The object's ID.
 	 */
@@ -38,11 +42,6 @@ public interface Track {
 	int getLength();
 
 	/**
-	 * The URI to access the file.
-	 */
-	String getStreamUri();
-
-	/**
 	 * The album to which this track belongs to.
 	 */
 	Album getAlbum();
@@ -51,4 +50,22 @@ public interface Track {
 	 * The artist which performs this track.
 	 */
 	Artist getArtist();
+
+	/**
+	 * URI to access file in given format.
+	 * 
+	 * @param type
+	 *            The file format.
+	 */
+	String getFile(MimeType type);
+
+	/**
+	 * A list of URIs to access the files in the different formats.
+	 */
+	String[] getFiles();
+	
+	/**
+	 * A list of available mimetypes for this track.
+	 */
+	MimeType[] getAvailableFileFormats();
 }

@@ -1,5 +1,7 @@
 package at.tripwire.shiva4j.objects.impl;
 
+import java.util.Map;
+
 import at.tripwire.shiva4j.objects.Album;
 import at.tripwire.shiva4j.objects.Artist;
 import at.tripwire.shiva4j.objects.Track;
@@ -13,75 +15,68 @@ public class TrackImpl implements Track {
 	private String title;
 	private String uri;
 	private int length;
-	private String streamUri;
 	private AlbumImpl album;
 	private ArtistImpl artist;
+	private Map<MimeType, String> files;
 
 	/**
-	 * The object's ID.
+	 * {@inheritDoc}
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * The ordinal number of this track with respect to this album.
+	 * {@inheritDoc}
 	 */
 	public int getNumber() {
 		return number;
 	}
 
 	/**
-	 * In MP3s this value is directly proportional to the sound quality.
+	 * {@inheritDoc}
 	 */
 	public int getBitrate() {
 		return bitrate;
 	}
 
 	/**
-	 * A slug of the track's title.
+	 * {@inheritDoc}
 	 */
 	public String getSlug() {
 		return slug;
 	}
 
 	/**
-	 * The title of the track.
+	 * {@inheritDoc}
 	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	 * The URI of this resource's instance.
+	 * {@inheritDoc}
 	 */
 	public String getUri() {
 		return uri;
 	}
 
 	/**
-	 * The length in seconds of the track.
+	 * {@inheritDoc}
 	 */
 	public int getLength() {
 		return length;
 	}
 
 	/**
-	 * The URI to access the file.
-	 */
-	public String getStreamUri() {
-		return streamUri;
-	}
-
-	/**
-	 * The album to which this track belongs to.
+	 * {@inheritDoc}
 	 */
 	public Album getAlbum() {
 		return album;
 	}
 
 	/**
-	 * The artist which performs this track.
+	 * {@inheritDoc}
 	 */
 	public Artist getArtist() {
 		return artist;
@@ -115,15 +110,45 @@ public class TrackImpl implements Track {
 		this.length = length;
 	}
 
-	public void setStreamUri(String streamUri) {
-		this.streamUri = streamUri;
-	}
-
 	public void setAlbum(AlbumImpl album) {
 		this.album = album;
 	}
 
 	public void setArtist(ArtistImpl artist) {
 		this.artist = artist;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public String getFile(MimeType type) {
+		if(files == null) {
+			return null;
+		}
+		return files.get(type);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public String[] getFiles() {
+		if(files == null) {
+			return null;
+		}
+		return files.values().toArray(new String[0]);
+	}
+	
+	public void setFiles(Map<MimeType, String> files) {
+		this.files = files;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public MimeType[] getAvailableFileFormats() {
+		if(files == null) {
+			return null;
+		}
+		return files.keySet().toArray(new MimeType[0]);
 	}
 }
