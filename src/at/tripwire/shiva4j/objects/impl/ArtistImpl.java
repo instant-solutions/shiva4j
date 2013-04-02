@@ -12,42 +12,42 @@ public class ArtistImpl implements Artist {
 	private String slug;
 
 	/**
-	 * The object's ID.
+	 * {@inheritDoc}
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * Artist's name
+	 * {@inheritDoc}
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Link to a photo of the artist.
+	 * {@inheritDoc}
 	 */
 	public String getImageUrl() {
 		return imageUrl;
 	}
 
 	/**
-	 * The URI of this resource's instance.
+	 * {@inheritDoc}
 	 */
 	public String getUri() {
 		return uri;
 	}
 
 	/**
-	 * The URI to domload this artist's tracks.
+	 * {@inheritDoc}
 	 */
 	public String getDownloadUri() {
 		return downloadUri;
 	}
 
 	/**
-	 * A slug of the artist's name.
+	 * {@inheritDoc}
 	 */
 	public String getSlug() {
 		return slug;

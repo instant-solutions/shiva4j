@@ -15,56 +15,56 @@ public class AlbumImpl implements Album {
 	private Artist[] artists;
 
 	/**
-	 * The object's ID.
+	 * {@inheritDoc}
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * The album's name.
+	 * {@inheritDoc}
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * The release year of the album.
+	 * {@inheritDoc}
 	 */
 	public int getYear() {
 		return year;
 	}
 
 	/**
-	 * The URI of this resource's instance.
+	 * {@inheritDoc}
 	 */
 	public String getUri() {
 		return uri;
 	}
 
 	/**
-	 * The URI to download this album.
+	 * {@inheritDoc}
 	 */
 	public String getDownloadUri() {
 		return downloadUri;
 	}
 
 	/**
-	 * A link to an image of the album's cover.
+	 * {@inheritDoc}
 	 */
 	public String getCoverUrl() {
 		return coverUrl;
 	}
 
 	/**
-	 * A slug of the album's name.
+	 * {@inheritDoc}
 	 */
 	public String getSlug() {
 		return slug;
 	}
 
 	/**
-	 * A list of the artists involved in that record.
+	 * {@inheritDoc}
 	 */
 	public Artist[] getArtists() {
 		return artists;

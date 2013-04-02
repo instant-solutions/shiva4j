@@ -12,35 +12,35 @@ public class LyricImpl implements Lyric {
 	private Track track;
 
 	/**
-	 * THe object's ID.
+	 * {@inheritDoc}
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * The lyric's text.
+	 * {@inheritDoc}
 	 */
 	public String getText() {
 		return text;
 	}
 
 	/**
-	 * The URI of this resource's instance.
+	 * {@inheritDoc}
 	 */
 	public String getUri() {
 		return uri;
 	}
 
 	/**
-	 * The URI whre the lyrics were fetched from.
+	 * {@inheritDoc}
 	 */
 	public String getSourceUri() {
 		return sourceUri;
 	}
 
 	/**
-	 * The track for which the lyrics are.
+	 * {@inheritDoc}
 	 */
 	public Track getTrack() {
 		return track;

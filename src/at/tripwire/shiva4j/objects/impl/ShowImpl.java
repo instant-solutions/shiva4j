@@ -21,21 +21,21 @@ public class ShowImpl implements Show {
 		private String longitude;
 
 		/**
-		 * Venue's name.
+		 * {@inheritDoc}
 		 */
 		public String getName() {
 			return name;
 		}
 
 		/**
-		 * Venue's latitude.
+		 * {@inheritDoc}
 		 */
 		public String getLatitude() {
 			return latitude;
 		}
 
 		/**
-		 * Venue's longitude.
+		 * {@inheritDoc}
 		 */
 		public String getLongitude() {
 			return longitude;
@@ -61,28 +61,28 @@ public class ShowImpl implements Show {
 		private String imageUrl;
 
 		/**
-		 * Name of the artist.
+		 * {@inheritDoc}
 		 */
 		public String getName() {
 			return name;
 		}
 
 		/**
-		 * MusicBrainz.com ID.
+		 * {@inheritDoc}
 		 */
 		public String getMusicBrainzId() {
 			return musicBrainzId;
 		}
 
 		/**
-		 * URI to BandsInTown's Facebook app for this artist.
+		 * {@inheritDoc}
 		 */
 		public String getFacebookTourDatesUrl() {
 			return facebookTourDatesUrl;
 		}
 
 		/**
-		 * URI to an image of the artist.
+		 * {@inheritDoc}
 		 */
 		public String getImageUrl() {
 			return imageUrl;
@@ -106,50 +106,49 @@ public class ShowImpl implements Show {
 	}
 
 	/**
-	 * BandsInTown's ID for this event.
+	 * {@inheritDoc}
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * The title of the event.
+	 * {@inheritDoc}
 	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	 * Date and time of the show.
+	 * {@inheritDoc}
 	 */
 	public Timestamp getDatetime() {
 		return datetime;
 	}
 
 	/**
-	 * A boolean representing the availability (or not) of tickets for the
-	 * concert.
+	 * {@inheritDoc}
 	 */
 	public boolean isTicketsLeft() {
 		return ticketsLeft;
 	}
 
 	/**
-	 * A structure identifying the venue where the event takes place.
+	 * {@inheritDoc}
 	 */
 	public Venue getVenue() {
 		return venue;
 	}
 
 	/**
-	 * A list of artist resources.
+	 * {@inheritDoc}
 	 */
 	public Artist[] getArtists() {
 		return artists;
 	}
 
 	/**
-	 * A list with artists that are not in Shiva's database.
+	 * {@inheritDoc}
 	 */
 	public OtherArtist[] getOtherArtists() {
 		return otherArtists;
